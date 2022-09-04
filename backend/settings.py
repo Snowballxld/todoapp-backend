@@ -1,3 +1,4 @@
+import os
 """
 Django settings for backend project.
 
@@ -9,6 +10,14 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
+
+if os.getenv('CORS_ALLOWED_ORIGIN'):
+    CORS_ALLOWED_ORIGINS.append(os.getenv('CORS_ALLOWED_ORIGIN'))
 
 from pathlib import Path
 
