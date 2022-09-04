@@ -11,7 +11,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if os.getenv('APP_HOST'):
+    ALLOWED_HOSTS.append(os.getenv('APP_HOST'))
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
@@ -33,8 +35,6 @@ SECRET_KEY = 'django-insecure-b3u2cdxn^o6e-7%sv*505i*3)lgf1*#jz#wbu&x@pj3k_z(3@v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
